@@ -1,0 +1,30 @@
+#!/bin/env sh
+
+XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+dir="${XDG_CONFIG_HOME}/bspwm"
+
+# Focus 
+bspc config click_to_focus              true
+
+# Monitors
+bspc config remove_disabled_monitors    true
+bspc config remove_unplugged_monitors   true
+
+#ignore_ewmh_fullscreen                  all
+
+
+# Load monitor settings
+FILE="${dir}/monitors" && test -f "$FILE" && . "$FILE"
+
+# Load autostarts
+FILE="${dir}/autostart" && test -f "$FILE" && . "$FILE"
+
+# Load theme
+FILE="${dir}/theme" && test -f "$FILE" && . "$FILE"
+
+# Layout
+bspc config external_rules_command "${dir}/layout"
+
+# Keyboard layout
+setxkbmap -model pc105 -layout us -variant altgr-intl \
+    -option caps:escape,compose:menu

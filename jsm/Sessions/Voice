@@ -1,0 +1,7 @@
+pre-session: jalv -i -x -n "Speech-Denoiser" https://github.com/lucianodato/speech-denoiser &
+con: system:capture_1->Speech-Denoiser:input
+con: system:capture_2->Speech-Denoiser:input
+con: system:playback_1->PulseAudio JACK Sink:front-left
+con: system:playback_2->PulseAudio JACK Sink:front-right
+con: PulseAudio JACK Source:front-left->Speech-Denoiser:output
+con: PulseAudio JACK Source:front-right->Speech-Denoiser:output

@@ -1,0 +1,40 @@
+[user]
+	name = cype
+	email = ma.wramba@gmail.com
+	signingkey = 5C1BCAF1B3D9289229D55663ED22C12A3DABC8CA
+[alias]
+	logg = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ss = status --short
+	unstage = reset HEAD --
+	dt = difftool
+	sf = diff-tree --no-commit-id --name-only -r
+	discard = checkout
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE
+[merge]
+	tool = nvimmerge
+[mergetool]
+	prompt = true
+[mergetool "nvimmerge"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[push]
+	default = simple
+[url "git@github.com:"]
+	pushInsteadOf = git://github.com/
+	pushInsteadOf = https://github.com/
+	pushInsteadOf = https://www.github.com/
+[url "git@bitbucket.org:"]
+	pushInsteadOf = git://bitbucket.org/
+	pushInsteadOf = https://bitbucket.org/
+	pushInsteadOf = https://www.bitbuchet.org/
+[commit]
+	gpgsign = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

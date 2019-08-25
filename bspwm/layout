@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# $1 = id
+# $2 = class
+title=$(xprop -id "$1" | sed -n 's/WM_NAME.*\"\(.*\)\".*/\1/p')
+
+case "$2" in
+    float-center)
+        echo 'state=floating center=on layer=above rectangle=300x200+0+0' ;;
+    Steam)
+        case "$title" in
+            Steam)
+                echo 'desktop=6' ;;
+            Friends\ List)
+                echo 'desktop=6' ;;
+            *)
+                echo 'desktop=6 state=floating' ;;
+        esac ;;
+esac

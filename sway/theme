@@ -1,0 +1,46 @@
+# Set background
+output * bg $(ls -d ~/Wallpaper/* | sort -R | tail -1) fill
+
+# Disable title bar
+default_border pixel 2px
+
+# enable gaps
+smart_gaps on
+gaps inner 5
+gaps outer 10
+
+# Gruvbox theme
+set $bg         #32302f
+set $bga        #32302fE6
+set $fg         #fbf1c7
+set $blue       #83a598
+set $purple     #d3869b
+set $red        #fb4934
+set $yellow     #fabd2f
+set $gray       #665c54
+set $darkgray   #504945
+
+# font used by i3 for titles and bars
+font pango:Source Code Pro 10
+
+#start of bar section
+bar {
+    position top
+    status_command while date +"%a %F %k:%M" ; do sleep 1; done
+    colors {
+        background $bga
+
+        statusline $fg
+
+        #                    border     background  text
+        focused_workspace    $blue      $blue       $darkgray
+        inactive_workspace   $darkgray  $gray       $bg
+        active_workspace     $gray      $gray       $fg
+        urgent_workspace     $red       $red        $bg
+    }
+}
+#                       border      background  text    indicator   child_border
+client.focused          $bg         $bg         $fg     $blue       $darkgray
+client.focused_inactive $bg         $bg         $fg     $blue       $bg
+client.unfocused        $gray       $gray       $fg     $blue       $gray
+client.urgent           $red        $bg         $bg     $blue       $red

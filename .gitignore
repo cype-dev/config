@@ -1,0 +1,7 @@
+# bspwm local config
+bspwm/bspwmrc_local
+bspwm/autostart_local
+
+# fish local config
+fish/fishd.*
+fish/fish_variables

@@ -1,0 +1,4 @@
+con: system:capture_1->PulseAudio JACK Source:front-left
+con: system:capture_2->PulseAudio JACK Source:front-right
+con: system:playback_1->PulseAudio JACK Sink:front-left
+con: system:playback_2->PulseAudio JACK Sink:front-right

@@ -1,0 +1,136 @@
+#######################################################################
+#                          System (Super_L)                           #
+#######################################################################
+
+# Quit bspwm
+Super_L ; Super_L ; q
+    bspc quit
+
+# Make sxhkd reload its configuration files
+Super_L ; Super_L ; r
+    pkill -USR1 -x sxhkd
+
+#######################################################################
+#                             Desktop (d)                             #
+#######################################################################
+
+# Alternate between the tiled and monocle layout
+Super_L ; d ; m
+    bspc desktop -l next
+
+#######################################################################
+#                             Window ( )                              #
+#######################################################################
+
+###############
+#  State (s)  #
+###############
+
+# Close node
+Super_L ; w
+    bspc node -c
+
+# Kill node
+Super_L ; x
+    bspc node -k
+
+# Set the window state
+Super_L ; s ; {t,s,f}
+    bspc node -t {tiled,'~floating','~fullscreen'}
+
+###############
+#  Focus ( )  #
+###############
+
+# Focus the node in the given direction
+Super_L ; {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Focus the given desktop
+Super_L ; {1-9,0}
+    bspc desktop -f {1-9,10}
+
+##############
+#  Move (m)  #
+##############
+
+# Move the node in the given direction
+Super_L ; m ; {h,j,k,l}
+    bspc node -s {west,south,north,east}.local
+
+# Move the node to the given desktop
+Super_L ; m ; {1-9,0}
+    bspc node -d {1-9,10}
+
+# Move floating window
+Super_L ; m ; f : {h,j,k,l}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+################
+#  Resize (r)  #
+################
+
+# Resize node in given direction
+Super_L ; r : {j,k}
+	INC={+10,-10}; bspc node @north -r $INC || bspc node @south -r $INC
+Super_L ; r : {h,l}
+	INC={-10,+10}; bspc node @east -r $INC || bspc node @west -r $INC
+
+#######################################################################
+#                       wm independent hotkeys                        #
+#######################################################################
+
+####################
+#  System Hotkeys  #
+####################
+
+XF86Audio{Play,Stop,Prev,Next}
+    mpc {toggle, stop, prev, next}
+
+# Change volume
+XF86Audio{Raise,Lower}Volume
+    amixer -qD pulse sset Master 2%{+,-}
+
+# Mute volume
+XF86AudioMute
+    amixer -qD pulse sset Master toggle
+
+# Increase screen backlight
+XF86MonBrightnessUp
+    xbacklight -inc 1
+
+# Decrease screen backlight
+XF86MonBrightnessDown
+    xbacklight -dec 1
+
+##################
+#  Programs (p)  #
+##################
+
+# Open Terminal
+Super_L ; Return
+    eval "$TERMINAL"
+
+# Open Terminal at current project directory
+Super_L ; p ; Return
+    eval "$TERMINAL" -d "$(cat ~/.cpd)"
+
+# Open browser
+Super_L ; p ; b
+    eval "$BROWSER"
+
+###############
+#  Menus (m)  #
+###############
+
+# Open menu
+Super_L ; space
+    get_executables | floatwindow fzfmenu | xargs -d "\n" sh -c
+
+# Open password menu
+Super_L ; m ; p
+    pass_list_passwords | floatwindow fzfmenu | xargs pass -c
+
+# Open wifi network menu
+Super_L ; m ; w
+    wifi_list | floatwindow fzfmenu | xargs nmcli device wifi connect

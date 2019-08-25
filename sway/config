@@ -1,0 +1,17 @@
+# Input configuration
+input "5935:71:WALTOP_International_Corp._Mars_Tablet" {
+    map_to_output DVI-I-1
+}
+
+# Keyboard layout
+input * xkb_layout  us
+input * xkb_variant "altgr-intl"
+input * xkb_options "caps:escape,compose:menu"
+input * xkb_model   "pc105"
+
+# Include other configuration files
+include $HOME/.config/sway/monitors
+include $HOME/.config/sway/theme
+include $HOME/.config/sway/autostart
+include $HOME/.config/sway/keybinds
+include $HOME/.config/sway/layout
