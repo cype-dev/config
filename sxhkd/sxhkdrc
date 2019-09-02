@@ -15,7 +15,7 @@ Super_L ; Super_L ; r
 #######################################################################
 
 # Alternate between the tiled and monocle layout
-Super_L ; d ; m
+Super_L ; y ; m
     bspc desktop -l next
 
 #######################################################################
@@ -133,7 +133,7 @@ Super_L ; p ; b
     eval "$BROWSER"
 
 ###############
-#  Menus (m)  #
+#  Menus (o)  #
 ###############
 
 # Open menu
@@ -141,9 +141,9 @@ Super_L ; space
     get_executables | floatwindow fzfmenu | xargs -d "\n" sh -c
 
 # Open password menu
-Super_L ; m ; p
+Super_L ; o ; p
     pass_list_passwords | floatwindow fzfmenu | xargs pass -c
 
 # Open wifi network menu
-Super_L ; m ; w
+Super_L ; o ; w
     wifi_list | floatwindow fzfmenu | xargs nmcli device wifi connect
