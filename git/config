@@ -1,7 +1,7 @@
 [user]
 	name = cype
-	email = ma.wramba@gmail.com
-	signingkey = 5C1BCAF1B3D9289229D55663ED22C12A3DABC8CA
+	email = mail@mkwa.dev
+	signingkey = 0779C933890C231CC8A4135DAF60B6FE6FFFB240
 [alias]
 	logg = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ss = status --short
