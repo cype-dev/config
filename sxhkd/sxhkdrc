@@ -34,9 +34,12 @@ Super_L ; w
 Super_L ; x
     bspc node -k
 
-# Set the window state
-Super_L ; s ; {t,s,f}
-    bspc node -t {tiled,'~floating','~fullscreen'}
+# Switch between floating and tiled state
+Super_L ; s ; t
+    bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+# Switch between fullscreen and previous state
+Super_L ; s ; f
+    bspc node -t ~fullscreen
 
 ###############
 #  Focus ( )  #
@@ -48,7 +51,7 @@ Super_L ; {h,j,k,l}
 
 # Focus the given desktop
 Super_L ; {1-9,0}
-    bspc desktop -f {1-9,10}
+    bspc desktop -f focused:^{1-9,10}
 
 ##############
 #  Move (m)  #
@@ -56,11 +59,13 @@ Super_L ; {1-9,0}
 
 # Move the node in the given direction
 Super_L ; m ; {h,j,k,l}
-    bspc node -s {west,south,north,east}.local
+    dir={west,south,north,east}; \
+    bspc node -s ${dir}.local || \
+    bspc node -m $(bspc query -M -m ${dir}) --follow
 
 # Move the node to the given desktop
 Super_L ; m ; {1-9,0}
-    bspc node -d {1-9,10}
+    bspc node -d focused:^{1-9,10}
 
 # Move floating window
 Super_L ; m ; f : {h,j,k,l}
