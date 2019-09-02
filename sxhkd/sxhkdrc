@@ -66,6 +66,14 @@ Super_L ; m ; {1-9,0}
 Super_L ; m ; f : {h,j,k,l}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+###################
+#  Preselect (d)  #
+###################
+
+# Preselect in given direction
+Super_L ; d ; {h,j,k,l}
+    bspc node -p ~{west,south,north,east}
+
 ################
 #  Resize (r)  #
 ################
