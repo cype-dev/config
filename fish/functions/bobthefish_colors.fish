@@ -1,4 +1,3 @@
-# Defined in /tmp/fish.ox5w2j/bobthefish_colors.fish @ line 2
 function bobthefish_colors --description 'Gruvbox dark soft color scheme' --no-scope-shadowing
 	__bobthefish_colors gruvbox
 

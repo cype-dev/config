@@ -1,3 +1,3 @@
 function systemupdate --description 'Update system packages'
-	trizen -Syu $argv;
+	trizen -Syu $argv
 end
