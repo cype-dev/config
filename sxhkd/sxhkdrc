@@ -147,3 +147,7 @@ Super_L ; o ; p
 # Open wifi network menu
 Super_L ; o ; w
     wifi_list | floatwindow fzfmenu | xargs nmcli device wifi connect
+
+# Switch between IME and default layout
+Super_L ; grave
+    ibus_toggle
