@@ -102,11 +102,21 @@ XF86Audio{Play,Stop,Prev,Next}
 
 # Change volume
 XF86Audio{Raise,Lower}Volume
-    amixer -qD pulse sset Master 2%{+,-}
+    amixer -qD pulse sset Master 2%{+,-}; \
+    vol=$(amixer -D pulse get Master | tail -1 | awk '\{print $5\}'| \
+        tr -d '[]%'); \
+    state=$(amixer -D pulse get Master | tail -1 | awk '\{print $6\}'| \
+        tr -d '[]%'); \
+    notify-send -u low -h "int:value:$vol" -h 'string:synchronous:volume' "Volume ($state)"
 
 # Mute volume
 XF86AudioMute
-    amixer -qD pulse sset Master toggle
+    amixer -qD pulse sset Master toggle; \
+    vol=$(amixer -D pulse get Master | tail -1 | awk '\{print $5\}'| \
+        tr -d '[]%'); \
+    state=$(amixer -D pulse get Master | tail -1 | awk '\{print $6\}'| \
+        tr -d '[]%'); \
+    notify-send -u low -h "int:value:$vol" -h 'string:synchronous:volume' "Volume ($state)"
 
 # Increase screen backlight
 XF86MonBrightnessUp
