@@ -1,0 +1,12 @@
+[Unit]
+Description=Compton compositor
+
+[Service]
+Type=simple
+Environment='CONFIG_FILE=%E/compton/compton.conf'
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/compton --config ${CONFIG_FILE} -cC -r 8 -t 0 -l 0
+Restart=on-failure
+
+[Install]
+WantedBy=bspwm.target

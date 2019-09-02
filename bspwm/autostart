@@ -1,3 +1,4 @@
 #!/usr/bin/env sh
 
-dex -a -e BSPWM &
+# Start bspwm systemd target
+systemctl --user start bspwm.target

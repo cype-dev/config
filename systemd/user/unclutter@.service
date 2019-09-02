@@ -1,0 +1,11 @@
+[Unit]
+Description=Unclutter cursor hiding daemon
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/unclutter -idle %i
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

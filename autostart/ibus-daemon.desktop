@@ -1,4 +1,0 @@
-[Desktop Entry]
-Exec=/usr/bin/ibus-daemon -drx
-Name=ibus-daemon
-Type=Application

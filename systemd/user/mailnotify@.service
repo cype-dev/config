@@ -1,0 +1,10 @@
+[Unit]
+Description=New mail notification daemon
+
+[Service]
+Type=simple
+ExecStart=%h/.bin/mailnotify %h/%i/
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

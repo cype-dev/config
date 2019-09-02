@@ -1,0 +1,11 @@
+[Unit]
+Description=Cloud drive mount daemon
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/rclone mount %i: %h/%i
+ExecStop=/bin/fusermount -u %h/%i
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

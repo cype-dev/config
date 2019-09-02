@@ -1,5 +1,0 @@
-[Desktop Entry]
-Exec=/usr/bin/unclutter -idle 5
-Name=unclutter
-Comment=hide idle mouse pointer
-Type=Application

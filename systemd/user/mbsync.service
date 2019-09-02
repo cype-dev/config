@@ -1,0 +1,7 @@
+[Unit]
+Description=Mailbox IMAP synchronization service
+
+[Service]
+Type=oneshot
+Environment='CONFIG_FILE=%E/isync/mbsyncrc'
+ExecStart=/usr/bin/torsocks -q mbsync -c ${CONFIG_FILE} -a

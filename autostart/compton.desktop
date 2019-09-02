@@ -1,6 +1,0 @@
-[Desktop Entry]
-Exec=sh -c 'compton --config "${XDG_CONFIG_HOME:-$HOME/.config}/compton/compton.conf" -cC -r 8 -t 0 -l 0'
-Name=compton
-Comment=a compositor for X11
-Type=Application
-OnlyShowIn=BSPWM
