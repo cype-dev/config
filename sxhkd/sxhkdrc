@@ -161,3 +161,15 @@ Super_L ; o ; w
 # Switch between IME and default layout
 Super_L ; grave
     ibus_toggle
+
+#############
+#  Bar (b)  #
+#############
+
+Super_L ; b ; d
+    date=$(date); \
+    notify-send -h 'string:synchronous:date' "$date"
+
+Super_L ; b ; s
+    song=$(mpc current); \
+    notify-send -h 'string:synchronous:song' "$song"
