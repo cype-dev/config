@@ -1,0 +1,1 @@
+pocket: 'open -t https://getpocket.com/edit?url={url}'
