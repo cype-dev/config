@@ -6,7 +6,7 @@ title=$(xprop -id "$1" | sed -n 's/WM_NAME.*\"\(.*\)\".*/\1/p')
 
 case "$2" in
     float-center)
-        echo 'state=floating center=on layer=above rectangle=300x200+0+0' ;;
+        echo 'state=floating sticky=on center=on layer=above rectangle=300x200+0+0' ;;
     Steam)
         case "$title" in
             Steam)
@@ -16,4 +16,6 @@ case "$2" in
             *)
                 echo 'desktop=6 state=floating' ;;
         esac ;;
+    Pinentry-* | Gcr-prompter)
+        echo 'sticky=on locked=on' ;;
 esac
