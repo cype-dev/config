@@ -1,0 +1,51 @@
+# Auto-reload feeds
+auto-reload yes
+
+# Remove read articles
+delete-read-articles-on-quit yes
+
+# Use tor
+use-proxy  yes
+proxy-type socks5h
+proxy      127.0.0.1:9050
+
+################
+#  Highlights  #
+################
+
+highlight-article "content =~ \"trump\" and unread = \"yes\""  red    default bold
+highlight-article "content =~ \"german\" and unread = \"yes\"" yellow default bold
+
+##############
+#  Keybinds  #
+##############
+
+# Macro prefix
+bind-key SPACE macro-prefix
+
+# Save to pocket
+macro p set browser "$BROWSER https://getpocket.com/edit?url=%u" ; open-in-browser ; set browser "$BROWSER %u"; toggle-article-read "read"
+
+# Vi-like movement
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
+bind-key g home
+bind-key G end
+
+###########
+#  Theme  #
+###########
+
+color background        default default
+color listnormal        color8  default
+color listnormal_unread default default
+color listfocus         color8  blue
+color listfocus_unread  black   blue
+color info              color20 color18
+color article           default default
+
+highlight article "^(Title):.*$"         blue    default
+highlight article "https?://[^ ]+"       color16 default
+highlight article "\\[image\\ [0-9]+\\]" green   default
