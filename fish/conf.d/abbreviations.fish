@@ -9,4 +9,5 @@ if status --is-interactive
     abbr -a -g khali        'khal interactive'
     abbr -a -g news         'newsboat'
     abbr -a -g ncm          'ncmpcpp'
+    abbr -a -g notes        'preview ~/notes'
 end
