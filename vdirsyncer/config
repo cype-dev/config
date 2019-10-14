@@ -1,0 +1,34 @@
+[general]
+status_path = "./status"
+
+[pair ufc]
+a            = "ufc_remote"
+b            = "ufc_local"
+collections  = null
+partial_sync = "ignore"
+
+[storage ufc_remote]
+type      = "http"
+url       = "https://ufc.tu-dortmund.de/calendar.ics"
+read_only = true
+
+[storage ufc_local]
+type    = "filesystem"
+path    = "~/.calendars/ufc/"
+fileext = ".ics"
+
+[pair holidays]
+a            = "holidays_remote"
+b            = "holidays_local"
+collections  = null
+partial_sync = "ignore"
+
+[storage holidays_remote]
+type      = "http"
+url       = "http://i.cal.to/ical/61/nrw/feiertage/9ad900c4.f657e655-7404e07d.ics"
+read_only = true
+
+[storage holidays_local]
+type    = "filesystem"
+path    = "~/.calendars/holidays/"
+fileext = ".ics"
