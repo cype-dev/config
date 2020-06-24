@@ -5,10 +5,10 @@
 [alias]
 	logg = log --graph --pretty=format:'%Cred%h%Creset - %G? -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	ss = status --short
-	unstage = reset HEAD --
+	unstage = restore --staged
 	dt = difftool
 	sf = diff-tree --no-commit-id --name-only -r
-	discard = checkout
+	discard = restore
 [diff]
 	tool = nvimdiff
 [difftool]
