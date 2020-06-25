@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+. "$XDG_CONFIG_HOME/user-dirs.dirs"
+XDG_PICTURES_DIR=${XDG_PICTURES_DIR:-$HOME}
 
 # Windows and layouts
 bspc config border_width   2
@@ -17,4 +19,4 @@ bspc config presel_feedback_color "#d5c4a1"
 xsetroot -cursor_name left_ptr
 
 # Wallpaper
-feh --no-fehbg --bg-fill "$(find ~/Wallpaper -type f | sort -R | tail -1)"
+feh --no-fehbg --bg-fill "$(find "$XDG_PICTURES_DIR/Wallpaper" -type f | sort -R | tail -1)"
